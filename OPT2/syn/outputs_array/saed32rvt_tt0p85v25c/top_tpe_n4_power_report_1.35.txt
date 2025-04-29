@@ -1,0 +1,57 @@
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : top_tpe
+Version: L-2016.03-SP1
+Date   : Sat Apr 26 20:52:32 2025
+****************************************
+
+
+Library(s) Used:
+
+    saed32rvt_tt0p85v25c (File: /home/vcs/workspace/wqz/code/experiment/HPCA2025/library/saed32rvt_tt0p85v25c.db)
+
+
+Operating Conditions: tt0p85v25c   Library: saed32rvt_tt0p85v25c
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+top_tpe                70000             saed32rvt_tt0p85v25c
+top_pe_tile_3          16000             saed32rvt_tt0p85v25c
+top_pe_tile_2          16000             saed32rvt_tt0p85v25c
+top_pe_tile_0          16000             saed32rvt_tt0p85v25c
+top_pe_tile_1          16000             saed32rvt_tt0p85v25c
+
+
+Global Operating Voltage = 0.85 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  =  18.9536 mW   (91%)
+  Net Switching Power  =   1.7709 mW    (9%)
+                         ---------
+Total Dynamic Power    =  20.7245 mW  (100%)
+
+Cell Leakage Power     =   1.9187 mW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register       1.4971e+04          535.5422        1.1289e+09        1.6635e+04  (  73.47%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational  3.9829e+03        1.2353e+03        7.8983e+08        6.0080e+03  (  26.53%)
+--------------------------------------------------------------------------------------------------
+Total          1.8954e+04 uW     1.7709e+03 uW     1.9187e+09 pW     2.2643e+04 uW
+1

@@ -1,0 +1,69 @@
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : top_tpe
+Version: L-2016.03-SP1
+Date   : Sat Apr 26 21:07:21 2025
+****************************************
+
+
+Library(s) Used:
+
+    saed32rvt_tt0p85v25c (File: /home/vcs/workspace/wqz/code/experiment/HPCA2025/library/saed32rvt_tt0p85v25c.db)
+
+
+Operating Conditions: tt0p85v25c   Library: saed32rvt_tt0p85v25c
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+top_tpe                280000            saed32rvt_tt0p85v25c
+top_pe_tile_15         16000             saed32rvt_tt0p85v25c
+top_pe_tile_14         16000             saed32rvt_tt0p85v25c
+top_pe_tile_0          16000             saed32rvt_tt0p85v25c
+top_pe_tile_1          16000             saed32rvt_tt0p85v25c
+top_pe_tile_2          16000             saed32rvt_tt0p85v25c
+top_pe_tile_3          16000             saed32rvt_tt0p85v25c
+top_pe_tile_4          16000             saed32rvt_tt0p85v25c
+top_pe_tile_5          16000             saed32rvt_tt0p85v25c
+top_pe_tile_6          16000             saed32rvt_tt0p85v25c
+top_pe_tile_7          16000             saed32rvt_tt0p85v25c
+top_pe_tile_8          16000             saed32rvt_tt0p85v25c
+top_pe_tile_9          16000             saed32rvt_tt0p85v25c
+top_pe_tile_10         16000             saed32rvt_tt0p85v25c
+top_pe_tile_11         16000             saed32rvt_tt0p85v25c
+top_pe_tile_12         16000             saed32rvt_tt0p85v25c
+top_pe_tile_13         16000             saed32rvt_tt0p85v25c
+
+
+Global Operating Voltage = 0.85 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  =  58.2830 mW   (90%)
+  Net Switching Power  =   6.1388 mW   (10%)
+                         ---------
+Total Dynamic Power    =  64.4218 mW  (100%)
+
+Cell Leakage Power     =   6.4449 mW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register       4.4258e+04        1.8945e+03        3.5199e+09        4.9673e+04  (  70.09%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational  1.4025e+04        4.2443e+03        2.9250e+09        2.1194e+04  (  29.91%)
+--------------------------------------------------------------------------------------------------
+Total          5.8283e+04 uW     6.1388e+03 uW     6.4449e+09 pW     7.0867e+04 uW
+1

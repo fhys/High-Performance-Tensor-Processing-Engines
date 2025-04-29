@@ -1,0 +1,61 @@
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : top_tpe
+Version: L-2016.03-SP1
+Date   : Sat Apr 26 20:53:51 2025
+****************************************
+
+
+Library(s) Used:
+
+    saed32rvt_tt0p85v25c (File: /home/vcs/workspace/wqz/code/experiment/HPCA2025/library/saed32rvt_tt0p85v25c.db)
+
+
+Operating Conditions: tt0p85v25c   Library: saed32rvt_tt0p85v25c
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+top_tpe                140000            saed32rvt_tt0p85v25c
+top_pe_tile_7          16000             saed32rvt_tt0p85v25c
+top_pe_tile_6          16000             saed32rvt_tt0p85v25c
+top_pe_tile_0          16000             saed32rvt_tt0p85v25c
+top_pe_tile_1          16000             saed32rvt_tt0p85v25c
+top_pe_tile_2          16000             saed32rvt_tt0p85v25c
+top_pe_tile_3          16000             saed32rvt_tt0p85v25c
+top_pe_tile_4          16000             saed32rvt_tt0p85v25c
+top_pe_tile_5          16000             saed32rvt_tt0p85v25c
+
+
+Global Operating Voltage = 0.85 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  =  34.9593 mW   (91%)
+  Net Switching Power  =   3.5123 mW    (9%)
+                         ---------
+Total Dynamic Power    =  38.4716 mW  (100%)
+
+Cell Leakage Power     =   3.5685 mW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register       2.7018e+04        1.0568e+03        2.0235e+09        3.0098e+04  (  71.59%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational  7.9416e+03        2.4555e+03        1.5450e+09        1.1942e+04  (  28.41%)
+--------------------------------------------------------------------------------------------------
+Total          3.4959e+04 uW     3.5123e+03 uW     3.5685e+09 pW     4.2040e+04 uW
+1

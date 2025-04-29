@@ -1,0 +1,85 @@
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : top_tpe
+Version: L-2016.03-SP1
+Date   : Sat Apr 26 21:31:09 2025
+****************************************
+
+
+Library(s) Used:
+
+    saed32rvt_tt0p85v25c (File: /home/vcs/workspace/wqz/code/experiment/HPCA2025/library/saed32rvt_tt0p85v25c.db)
+
+
+Operating Conditions: tt0p85v25c   Library: saed32rvt_tt0p85v25c
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+top_tpe                540000            saed32rvt_tt0p85v25c
+top_pe_tile_31         16000             saed32rvt_tt0p85v25c
+top_pe_tile_30         16000             saed32rvt_tt0p85v25c
+top_pe_tile_0          16000             saed32rvt_tt0p85v25c
+top_pe_tile_1          16000             saed32rvt_tt0p85v25c
+top_pe_tile_2          16000             saed32rvt_tt0p85v25c
+top_pe_tile_3          16000             saed32rvt_tt0p85v25c
+top_pe_tile_4          16000             saed32rvt_tt0p85v25c
+top_pe_tile_5          16000             saed32rvt_tt0p85v25c
+top_pe_tile_6          16000             saed32rvt_tt0p85v25c
+top_pe_tile_7          16000             saed32rvt_tt0p85v25c
+top_pe_tile_8          16000             saed32rvt_tt0p85v25c
+top_pe_tile_9          16000             saed32rvt_tt0p85v25c
+top_pe_tile_10         16000             saed32rvt_tt0p85v25c
+top_pe_tile_11         16000             saed32rvt_tt0p85v25c
+top_pe_tile_12         16000             saed32rvt_tt0p85v25c
+top_pe_tile_13         16000             saed32rvt_tt0p85v25c
+top_pe_tile_14         16000             saed32rvt_tt0p85v25c
+top_pe_tile_15         16000             saed32rvt_tt0p85v25c
+top_pe_tile_16         16000             saed32rvt_tt0p85v25c
+top_pe_tile_17         16000             saed32rvt_tt0p85v25c
+top_pe_tile_18         16000             saed32rvt_tt0p85v25c
+top_pe_tile_19         16000             saed32rvt_tt0p85v25c
+top_pe_tile_20         16000             saed32rvt_tt0p85v25c
+top_pe_tile_21         16000             saed32rvt_tt0p85v25c
+top_pe_tile_22         16000             saed32rvt_tt0p85v25c
+top_pe_tile_23         16000             saed32rvt_tt0p85v25c
+top_pe_tile_24         16000             saed32rvt_tt0p85v25c
+top_pe_tile_25         16000             saed32rvt_tt0p85v25c
+top_pe_tile_26         16000             saed32rvt_tt0p85v25c
+top_pe_tile_27         16000             saed32rvt_tt0p85v25c
+top_pe_tile_28         16000             saed32rvt_tt0p85v25c
+top_pe_tile_29         16000             saed32rvt_tt0p85v25c
+
+
+Global Operating Voltage = 0.85 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  = 114.7739 mW   (91%)
+  Net Switching Power  =  11.9919 mW    (9%)
+                         ---------
+Total Dynamic Power    = 126.7658 mW  (100%)
+
+Cell Leakage Power     =  13.0051 mW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register       8.7557e+04        3.7633e+03        7.1948e+09        9.8515e+04  (  70.48%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational  2.7217e+04        8.2286e+03        5.8103e+09        4.1255e+04  (  29.52%)
+--------------------------------------------------------------------------------------------------
+Total          1.1477e+05 uW     1.1992e+04 uW     1.3005e+10 pW     1.3977e+05 uW
+1

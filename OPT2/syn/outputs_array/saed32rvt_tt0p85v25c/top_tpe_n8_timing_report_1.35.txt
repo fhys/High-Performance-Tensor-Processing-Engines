@@ -1,0 +1,68 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'top_tpe' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : top_tpe
+Version: L-2016.03-SP1
+Date   : Sat Apr 26 20:53:51 2025
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tt0p85v25c   Library: saed32rvt_tt0p85v25c
+Wire Load Model Mode: enclosed
+
+  Startpoint: genblk1[0].genblk1.pe_tile/weight_buffer/buffer_reg[4][2]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: genblk1[0].genblk1.pe_tile/R_9387
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top_tpe            140000                saed32rvt_tt0p85v25c
+  top_pe_tile_7      16000                 saed32rvt_tt0p85v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  genblk1[0].genblk1.pe_tile/weight_buffer/buffer_reg[4][2]/CLK (DFFX1_RVT)
+                                                          0.00 #     0.00 r
+  genblk1[0].genblk1.pe_tile/weight_buffer/buffer_reg[4][2]/QN (DFFX1_RVT)
+                                                          0.15       0.15 r
+  genblk1[0].genblk1.pe_tile/U1472/Y (NAND4X0_RVT)        0.10       0.26 f
+  genblk1[0].genblk1.pe_tile/U51/Y (INVX1_RVT)            0.06       0.32 r
+  genblk1[0].genblk1.pe_tile/U1473/Y (NAND2X0_RVT)        0.06       0.37 f
+  genblk1[0].genblk1.pe_tile/U37/Y (INVX1_RVT)            0.05       0.42 r
+  genblk1[0].genblk1.pe_tile/U1474/Y (NAND2X0_RVT)        0.05       0.48 f
+  genblk1[0].genblk1.pe_tile/U21/Y (INVX1_RVT)            0.05       0.53 r
+  genblk1[0].genblk1.pe_tile/U1475/Y (NAND2X0_RVT)        0.05       0.58 f
+  genblk1[0].genblk1.pe_tile/U1476/Y (AND2X1_RVT)         0.10       0.68 f
+  genblk1[0].genblk1.pe_tile/U1497/Y (AO21X1_RVT)         0.09       0.77 f
+  genblk1[0].genblk1.pe_tile/U81/Y (INVX2_RVT)            0.07       0.84 r
+  genblk1[0].genblk1.pe_tile/U1509/Y (OA22X1_RVT)         0.08       0.92 r
+  genblk1[0].genblk1.pe_tile/U1510/Y (NAND2X0_RVT)        0.06       0.98 f
+  genblk1[0].genblk1.pe_tile/U1515/CO (FADDX1_RVT)        0.13       1.11 f
+  genblk1[0].genblk1.pe_tile/U1400/S (FADDX1_RVT)         0.17       1.28 r
+  genblk1[0].genblk1.pe_tile/R_9387/D (DFFX1_RVT)         0.01       1.29 r
+  data arrival time                                                  1.29
+
+  clock clk (rise edge)                                   1.35       1.35
+  clock network delay (ideal)                             0.00       1.35
+  genblk1[0].genblk1.pe_tile/R_9387/CLK (DFFX1_RVT)       0.00       1.35 r
+  library setup time                                     -0.05       1.30
+  data required time                                                 1.30
+  --------------------------------------------------------------------------
+  data required time                                                 1.30
+  data arrival time                                                 -1.29
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1

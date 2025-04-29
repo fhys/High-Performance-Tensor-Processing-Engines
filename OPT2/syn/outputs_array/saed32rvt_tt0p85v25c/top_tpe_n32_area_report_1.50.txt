@@ -1,0 +1,75 @@
+ 
+****************************************
+Report : area
+Design : top_tpe
+Version: L-2016.03-SP1
+Date   : Sat Apr 26 21:31:08 2025
+****************************************
+
+Library(s) Used:
+
+    saed32rvt_tt0p85v25c (File: /home/vcs/workspace/wqz/code/experiment/HPCA2025/library/saed32rvt_tt0p85v25c.db)
+
+Number of ports:                        14274
+Number of nets:                        177357
+Number of cells:                       134926
+Number of combinational cells:         108385
+Number of sequential cells:             26509
+Number of macros/black boxes:               0
+Number of buf/inv:                       6135
+Number of references:                      45
+
+Combinational area:             287551.988396
+Buf/Inv area:                     7838.563428
+Noncombinational area:          175164.691446
+Macro/Black Box area:                0.000000
+Net Interconnect area:          185918.136412
+
+Total cell area:                462716.679842
+Total area:                     648634.816254
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area              Local cell area
+                                  --------------------  -------------------------------- 
+Hierarchical cell                 Absolute     Percent  Combi-       Noncombi-    Black-
+                                  Total        Total    national     national     boxes   Design
+--------------------------------  -----------  -------  -----------  -----------  ------  --------------
+top_tpe                           462716.6798    100.0    1826.5330    4024.1162  0.0000  top_tpe
+genblk1[0].genblk1.pe_tile         14447.0699      3.1    8929.6035    5517.4664  0.0000  top_pe_tile_31
+genblk1[10].genblk1.pe_tile        14146.4176      3.1    8926.2996    5220.1179  0.0000  top_pe_tile_21
+genblk1[11].genblk1.pe_tile        14146.4176      3.1    8926.2996    5220.1179  0.0000  top_pe_tile_20
+genblk1[12].genblk1.pe_tile        14149.7214      3.1    8929.6035    5220.1179  0.0000  top_pe_tile_19
+genblk1[13].genblk1.pe_tile        14146.4176      3.1    8926.2996    5220.1179  0.0000  top_pe_tile_18
+genblk1[14].genblk1.pe_tile        14146.4176      3.1    8926.2996    5220.1179  0.0000  top_pe_tile_17
+genblk1[15].genblk1.pe_tile        14146.4176      3.1    8926.2996    5220.1179  0.0000  top_pe_tile_16
+genblk1[16].genblk1.pe_tile        14149.7214      3.1    8929.6035    5220.1179  0.0000  top_pe_tile_15
+genblk1[17].genblk1.pe_tile        14149.7214      3.1    8929.6035    5220.1179  0.0000  top_pe_tile_14
+genblk1[18].genblk1.pe_tile        14402.5947      3.1    8957.8135    5444.7812  0.0000  top_pe_tile_13
+genblk1[19].genblk1.pe_tile        14445.7992      3.1    8928.3328    5517.4664  0.0000  top_pe_tile_12
+genblk1[1].genblk1.pe_tile         14447.0699      3.1    8929.6035    5517.4664  0.0000  top_pe_tile_30
+genblk1[20].genblk1.pe_tile        14443.7660      3.1    8926.2996    5517.4664  0.0000  top_pe_tile_11
+genblk1[21].genblk1.pe_tile        14447.0699      3.1    8929.6035    5517.4664  0.0000  top_pe_tile_10
+genblk1[22].genblk1.pe_tile        14447.0699      3.1    8929.6035    5517.4664  0.0000  top_pe_tile_9
+genblk1[23].genblk1.pe_tile        14447.0699      3.1    8929.6035    5517.4664  0.0000  top_pe_tile_8
+genblk1[24].genblk1.pe_tile        14447.0699      3.1    8929.6035    5517.4664  0.0000  top_pe_tile_7
+genblk1[25].genblk1.pe_tile        14447.0699      3.1    8929.6035    5517.4664  0.0000  top_pe_tile_6
+genblk1[26].genblk1.pe_tile        14445.7992      3.1    8928.3328    5517.4664  0.0000  top_pe_tile_5
+genblk1[27].genblk1.pe_tile        14447.0699      3.1    8929.6035    5517.4664  0.0000  top_pe_tile_4
+genblk1[28].genblk1.pe_tile        14447.0699      3.1    8929.6035    5517.4664  0.0000  top_pe_tile_3
+genblk1[29].genblk1.pe_tile        14447.0699      3.1    8929.6035    5517.4664  0.0000  top_pe_tile_2
+genblk1[2].genblk1.pe_tile         14146.4176      3.1    8926.2996    5220.1179  0.0000  top_pe_tile_29
+genblk1[30].genblk1.pe_tile        14447.0699      3.1    8929.6035    5517.4664  0.0000  top_pe_tile_1
+genblk1[31].genblk1.pe_tile        13857.7100      3.0    8928.3328    4929.3772  0.0000  top_pe_tile_0
+genblk1[3].genblk1.pe_tile         14146.4176      3.1    8926.2996    5220.1179  0.0000  top_pe_tile_28
+genblk1[4].genblk1.pe_tile         14146.4176      3.1    8926.2996    5220.1179  0.0000  top_pe_tile_27
+genblk1[5].genblk1.pe_tile         14146.4176      3.1    8926.2996    5220.1179  0.0000  top_pe_tile_26
+genblk1[6].genblk1.pe_tile         14146.4176      3.1    8926.2996    5220.1179  0.0000  top_pe_tile_25
+genblk1[7].genblk1.pe_tile         14146.4176      3.1    8926.2996    5220.1179  0.0000  top_pe_tile_24
+genblk1[8].genblk1.pe_tile         14146.4176      3.1    8926.2996    5220.1179  0.0000  top_pe_tile_23
+genblk1[9].genblk1.pe_tile         14146.4176      3.1    8926.2996    5220.1179  0.0000  top_pe_tile_22
+--------------------------------  -----------  -------  -----------  -----------  ------  --------------
+Total                                                   287551.9884  175164.6914  0.0000
+
+1
