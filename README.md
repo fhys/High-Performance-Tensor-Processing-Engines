@@ -49,14 +49,14 @@ $ cd /OPT1/systolic_array/opt1_pe/power
 $ sh pt.sh
 ```
 
-|Comparison of PE levels (MAC .vs OPT1-PE)|||||||||
-| :--------------------------------------------------------------------: | :-----------------------------------: | :--------------------------------: | :-------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
-|Freq(MHz)|500|600|666|769|833|870|900|>910|
-|Unit|Area($um^{2}$)<br />||||||||
-|MAC|1481|1666|**Timing VIOLATED**|**Timing VIOLATED**|**Timing VIOLATED**|**Timing VIOLATED**|**Timing VIOLATED**|**Timing VIOLATED**|
-|OPT1-PE|/|/|1446|1482|1609|1668|1780|**Timing VIOLATED**|
+											 **Comparison of PE levels (MAC .vs OPT1-PE)**
 
- ***<u>Note: MAC test code in path "/OPT1/systolic_array/mac_pe". Area and timing report in path "/OPT1/systolic_array/opt1_pe/syn/outputs" and "/OPT1/systolic_array_os/mac_pe/syn/outputs"</u>***
+|Freq(MHz)|500|600|666|769|833|870|900|\>910|
+| :------------------------------------: | :------------------------------: | :------------------------------: | :------------------------------: | :------------------------------: | :------------------------------: | :------------------------------: | :------------------------------: | :-----------------------------------: |
+|MAC Area($um^{2}$)|1481|1666|**Timing VIOLATED**|**Timing VIOLATED**|**Timing VIOLATED**|**Timing VIOLATED**|**Timing VIOLATED**|**Timing VIOLATED**|
+|OPT1-PE Area($um^{2}$)|/|/|1446|1482|1609|1668|1780|**Timing VIOLATED**|
+
+***<u>Note: MAC test code in path "/OPT1/systolic_array/mac_pe". Area and timing report in path "/OPT1/systolic_array/opt1_pe/syn/outputs" and "/OPT1/systolic_array_os/mac_pe/syn/outputs"</u>***
 
 Next, we evaluate the performance of the array by comparing OPT1-PE with traditional MAC (Multiply-Accumulate) units under OS-style (Output Stationary), WS-style (Weight Stationary), and 3D-Cube architecture-based TensorCore configurations.
 
@@ -101,9 +101,10 @@ $ sh run.sh
 
 ```
 
-|MAC-based systolic array (OS) 32 bit accmulator<br />||||
-| :----------------------------------------------------------------------------: | :--------------------------------------------: | :-------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
-|M $\times$ N|16x16|16x16|16x16|
+                                       **MAC-based systolic array (OS) 32 bit accmulator**
+
+|M$\times$N|16x16|16x16|16x16|
+| :-------------------------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
 |Freq(MHz)|154|167|200|
 |Delay(ns)|6.44|**Timing VIOLATED**|**Timing VIOLATED**|
 |Area(Total cell area)|376683|/|/|
@@ -123,9 +124,10 @@ $ cd /OPT1/systolic_array_os/array_opt1_based/syn
 $ sh run.sh
 ```
 
-|OPT1-PE-based systolic array (OS) 32 bit accmulator|||||
-| :------------------------------------------------------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: | :-------------------------------------------------------------------------------------------------: |
-|M $\times$ N|16 x16|16x16|16x16|16x16|
+                                            **OPT1-PE-based systolic array (OS) 32 bit accmulator**
+
+|M$\times$N|16 x16|16x16|16x16|16x16|
+| :---------------------------------------------------: | :---------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
 |Freq(MHz)|200|250|322|333|
 |Delay(ns)|4.87|3.94|3.04|**Timing VIOLATED**|
 |Area(Total cell area)($um^{2}$)|324494|326586|362483|/|
@@ -147,13 +149,14 @@ $ cd /OPT1/systolic_array_ws/array_mac_based/syn
 $ sh run.sh
 ```
 
-|MAC-based systolic array (WS) dynamically bit-width accumulate <br />|||
-| :--------------------------------------------------------------------------------------------: | :--------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
-|M $\times$ N|16x16|16x16|
+             **MAC-based systolic array (WS) dynamically bit-width accumulate**
+
+|M$\times$N|16x16|16x16|
+| :---------------------------------------------------: | :--------------------------------: | :--------------------------------: |
 |Freq(MHz)|182|200|
 |Delay(ns)|5.44|**Timing VIOLATED**|
-|Area(Total cell area)|276541|/|
-|Area(Include Net Interconnect area and cell area)|415393|/|
+|Area(Total cell area)($um^{2}$)|276541|/|
+|Area(Include Net Interconnect area and cell area)($um^{2}$)|415393|/|
 
 ***<u>Note:  Area and timing report in path "/OPT1/systolic_array_ws/array_mac_based/syn/outputs/saed32rvt_tt0p85v25c"</u>***
 
@@ -169,17 +172,16 @@ $ cd /OPT1/systolic_array_ws/array_mac_based/syn
 $ sh run.sh
 ```
 
-|OPT1-PE-based systolic array (WS) dynamically bit-width accumulate<br />||||||
-| :-----------------------------------------------------------------------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: | :-------------------------------------------------------------------------------------------------: |
-|M $\times$ N|16x16|16x16|16x16|16x16|16x16|
+                                     **OPT1-PE-based systolic array (WS) dynamically bit-width accumulate**
+
+|M$\times$N|16x16|16x16|16x16|16x16|16x16|
+| :---------------------------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
 |Freq(MHz)|222|250|286|303|322|
 |Delay(ns)|4.43|3.94|3.45|3.25|**Timing VIOLATED**|
 |Area(Total cell area)($um^{2}$)|288081|315124|299176|311258|/|
 |Area(Include Net Interconnect area and cell area)($um^{2}$)|474076|522276|507686|524171|/|
 
 ***<u>Note:  Area and timing report in path "/OPT1/systolic_array_ws/array_opt1_based/syn/outputs/saed32rvt_tt0p85v25c"</u>***
-
-‍
 
 ‍
 
@@ -197,17 +199,16 @@ $ cd /OPT1/cube/array_mac_based/syn
 $ sh run.sh
 ```
 
-|MAC-based cube<br />||||
-| :---------------------------------------------------: | :--------------------------------------------: | :--------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
-|N $\times$ N $\times$ N|8x8x8|8x8x8|8x8x8|
+								**MAC-based cube**
+
+|N$\times$N$\times$N|8x8x8|8x8x8|8x8x8|
+| :---------------------------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
 |Freq(MHz)|154|159|167|
 |Delay(ns)|6.44|6.24|**Timing VIOLATED**|
 |Area(Total cell area)($um^{2}$)|494745|498012|/|
 |Area(Include Net Interconnect area and cell area)($um^{2}$)|774395|778476|/|
 
 ***<u>Note:  Area and timing report in path "/OPT1/cube/array_mac_based/syn/outputs"</u>***
-
-‍
 
 Execute the following commands to perform OPT1-PE-based 3D-Cube synthesis and functional simulation. (***<u>Note: Replace the working paths in both the scripts and filelist with your personal directory</u>***):
 
@@ -219,17 +220,16 @@ $ cd /OPT1/cube/array_opt1_based/syn
 $ sh run.sh
 ```
 
-|OPT1-PE-based cube<br />|||
-| :---------------------------------------------------: | :--------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
-|N $\times$ N $\times$ N|8x8x8|8x8x8|
+							**OPT1-PE-based cube**
+
+|N$\times$N$\times$N|8x8x8|8x8x8|
+| :---------------------------------------------------: | :--------------------------------: | :--------------------------------: |
 |Freq(MHz)|250|286|
 |Delay(ns)|3.89|**Timing VIOLATED**|
 |Area(Total cell area)($um^{2}$)|524725|/|
 |Area(Include Net Interconnect area and cell area)($um^{2}$)|864067|/|
 
 ***<u>Note:  Area and timing report in path "/OPT1/cube/array_opt1_based/syn/outputs/saed32rvt_tt0p85v25c"</u>***
-
-​​
 
 # Same Bit-weight **Compressor Array for GEMM**  (OPT2)
 
@@ -282,9 +282,10 @@ $ sh run.sh
 
 The following are typical configurations for some array sizes:
 
-|OPT2-based mul-tree (WS)|||||
-| :---------------------------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
-|K $\times$ N|16 $\times$ 4|16 $\times$ 8|16 $\times$ 16|16 $\times$ 32|
+							**OPT2-based mul-tree (WS)**
+
+|K$\times$N|16$\times$4|16$\times$8|16$\times$16|16$\times$32|
+| :---------------------------------------------------: | :------------------------------: | :------------------------------: | :-------------------------------: | :-------------------------------: |
 |Freq(MHz)|740|740|690|666|
 |Delay(ns)|1.30|1.29|1.40|1.44|
 |Area(Total cell area)($um^{2}$)|67171|126542|230216|462716|
@@ -294,13 +295,11 @@ The following are typical configurations for some array sizes:
 
 ‍
 
-***<u>Note: Subsequent content (OPT3 and OPT4)  documents updates are ongoing and will be completed by May 25th.</u>***
-
 # **Sparsity Encoding PE-Array for GEMM**  (OPT3)
 
 # Shared DFFs S**parsity Encoding PE-Array for GEMM**  (OPT4)
 
-‍
+***<u>Note: Subsequent content (OPT3 and OPT4)  documents updates are ongoing and will be completed by May 20th.</u>***
 
 ‍
 
