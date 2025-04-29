@@ -1,0 +1,43 @@
+ 
+****************************************
+Report : area
+Design : opt1_mac
+Version: L-2016.03-SP1
+Date   : Thu Apr 24 23:58:39 2025
+****************************************
+
+Library(s) Used:
+
+    saed32rvt_tt0p85v25c (File: /home/vcs/workspace/wqz/code/experiment/HPCA2025/library/saed32rvt_tt0p85v25c.db)
+
+Number of ports:                           82
+Number of nets:                           470
+Number of cells:                          381
+Number of combinational cells:            297
+Number of sequential cells:                84
+Number of macros/black boxes:               0
+Number of buf/inv:                          9
+Number of references:                      29
+
+Combinational area:                866.122755
+Buf/Inv area:                       11.436480
+Noncombinational area:             531.669265
+Macro/Black Box area:                0.000000
+Net Interconnect area:             270.887913
+
+Total cell area:                  1397.792019
+Total area:                       1668.679932
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  --------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-    Noncombi-  Black-
+                                  Total      Total    national  national   boxes   Design
+--------------------------------  ---------  -------  --------  ---------  ------  ---------
+opt1_mac                          1397.7920    100.0  866.1228   531.6693  0.0000  opt1_mac
+--------------------------------  ---------  -------  --------  ---------  ------  ---------
+Total                                                 866.1228   531.6693  0.0000
+
+1
