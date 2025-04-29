@@ -1,0 +1,71 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'top' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : top
+Version: L-2016.03-SP1
+Date   : Mon Apr 28 22:34:10 2025
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tt0p85v25c   Library: saed32rvt_tt0p85v25c
+Wire Load Model Mode: enclosed
+
+  Startpoint: DP_OP_1540J1_125_5808/R_54758
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: genblk1[15].genblk1[13].genblk1.u_PE/result_reg[16]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                540000                saed32rvt_tt0p85v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  DP_OP_1540J1_125_5808/R_54758/CLK (DFFARX1_RVT)         0.00 #     0.00 r
+  DP_OP_1540J1_125_5808/R_54758/Q (DFFARX1_RVT)           0.17       0.17 r
+  U27068/Y (AND2X1_RVT)                                   0.32       0.49 r
+  U8951/Y (OR2X2_RVT)                                     0.28       0.77 r
+  U10027/Y (AO22X1_RVT)                                   0.20       0.97 r
+  U10026/Y (OR2X1_RVT)                                    0.26       1.23 r
+  U9758/Y (AO22X1_RVT)                                    0.20       1.43 r
+  U12075/Y (XOR3X2_RVT)                                   0.51       1.94 f
+  U46093/S (FADDX1_RVT)                                   0.51       2.45 r
+  U46094/Y (NAND2X0_RVT)                                  0.20       2.65 f
+  U19678/Y (NAND2X0_RVT)                                  0.21       2.85 r
+  U19677/Y (OA22X1_RVT)                                   0.20       3.06 r
+  U46096/Y (AO22X1_RVT)                                   0.23       3.29 r
+  U27063/Y (AO22X1_RVT)                                   0.23       3.51 r
+  U46099/Y (AO22X1_RVT)                                   0.24       3.75 r
+  U20370/Y (AO22X1_RVT)                                   0.25       4.00 r
+  U26063/Y (NAND2X0_RVT)                                  0.17       4.17 f
+  U26062/Y (NAND2X0_RVT)                                  0.17       4.34 r
+  U12879/Y (XOR3X2_RVT)                                   0.35       4.69 f
+  U46102/Y (AND2X1_RVT)                                   0.19       4.88 f
+  genblk1[15].genblk1[13].genblk1.u_PE/result_reg[16]/D (DFFARX1_RVT)
+                                                          0.14       5.02 f
+  data arrival time                                                  5.02
+
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  genblk1[15].genblk1[13].genblk1.u_PE/result_reg[16]/CLK (DFFARX1_RVT)
+                                                          0.00       5.00 r
+  library setup time                                     -0.05       4.95
+  data required time                                                 4.95
+  --------------------------------------------------------------------------
+  data required time                                                 4.95
+  data arrival time                                                 -5.02
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.07
+
+
+1
