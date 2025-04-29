@@ -21,8 +21,6 @@ of  [Exploring the Performance Improvement of Tensor Processing Engines through 
 
 # **Compressed Accumulative PE Array OS Style** (OPT1-OS)
 
-‍
-
 ## **Compressed Accumulative** Process Element (PE)
 
 * RTL path: "OPT1/systolic_array/opt1_pe/"
