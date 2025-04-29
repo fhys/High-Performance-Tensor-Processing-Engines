@@ -1,0 +1,65 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'top' contains 3 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : top
+Version: L-2016.03-SP1
+Date   : Tue Apr 29 14:32:12 2025
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tt0p85v25c   Library: saed32rvt_tt0p85v25c
+Wire Load Model Mode: enclosed
+
+  Startpoint: genblk1[13].genblk1[6].genblk1.u_PE/col_reg[6]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: genblk1[14].genblk1[6].genblk1.u_PE/opt1_mac_test/acc_carry_reg[11]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                540000                saed32rvt_tt0p85v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  genblk1[13].genblk1[6].genblk1.u_PE/col_reg[6]/CLK (DFFARX1_RVT)
+                                                          0.00 #     0.00 r
+  genblk1[13].genblk1[6].genblk1.u_PE/col_reg[6]/Q (DFFARX1_RVT)
+                                                          0.17       0.17 r
+  U66241/Y (NAND2X0_RVT)                                  0.30       0.47 f
+  U66242/Y (OA21X1_RVT)                                   0.23       0.70 f
+  U57244/Y (INVX0_RVT)                                    0.43       1.13 r
+  U70856/Y (AO22X1_RVT)                                   0.39       1.52 r
+  U71921/S (FADDX1_RVT)                                   0.61       2.13 f
+  U57242/Y (INVX0_RVT)                                    0.19       2.32 r
+  U56005/Y (XOR3X1_RVT)                                   0.54       2.85 f
+  U71922/SO (HADDX1_RVT)                                  0.40       3.26 r
+  U71923/Y (OR2X1_RVT)                                    0.26       3.51 r
+  U71926/Y (AOI221X1_RVT)                                 0.29       3.81 f
+  genblk1[14].genblk1[6].genblk1.u_PE/opt1_mac_test/acc_carry_reg[11]/D (DFFX1_RVT)
+                                                          0.14       3.94 f
+  data arrival time                                                  3.94
+
+  clock clk (rise edge)                                   4.00       4.00
+  clock network delay (ideal)                             0.00       4.00
+  genblk1[14].genblk1[6].genblk1.u_PE/opt1_mac_test/acc_carry_reg[11]/CLK (DFFX1_RVT)
+                                                          0.00       4.00 r
+  library setup time                                     -0.05       3.95
+  data required time                                                 3.95
+  --------------------------------------------------------------------------
+  data required time                                                 3.95
+  data arrival time                                                 -3.94
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.01
+
+
+1
