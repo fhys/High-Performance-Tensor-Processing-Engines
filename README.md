@@ -23,15 +23,15 @@ of  [Exploring the Performance Improvement of Tensor Processing Engines through 
 
 ## **Compressed Accumulative** Process Element (PE)
 
-* RTL path: "OPT1/systolic_array/opt1_pe/"
-* Synthesis script path: "/OPT1/systolic_array/opt1_pe/syn/run.sh"
-* PrimeTime power simulation script path: "/OPT1/systolic_array/opt1_pe/power/pt.sh"
-* RTL functional simulation："/OPT1/systolic_array/opt1_pe/sim"
+* RTL path: "OPT1/systolic_array_os/opt1_pe/"
+* Synthesis script path: "/OPT1/systolic_array_os/opt1_pe/syn/run.sh"
+* PrimeTime power simulation script path: "/OPT1/systolic_array_os/opt1_pe/power/pt.sh"
+* RTL functional simulation："/OPT1/systolic_array_os/opt1_pe/sim"
 
 Execute the following commands to perform PE calculation, functional simulation, and view the waveforms (***<u>Note: Replace the working paths in both the scripts and filelist with your personal directory</u>***)：
 
 ```bash
-$ cd /OPT1/systolic_array/opt1_pe/sim
+$ cd /OPT1/systolic_array_os/opt1_pe/sim
 $ make vcs
 $ make vd
 ```
@@ -41,9 +41,9 @@ $ make vd
 Execute the following commands to perform OPT1-PE synthesis and power simulation with fsdb file(***<u>Note: Replace the working paths in both the scripts and filelist with your personal directory</u>***):
 
 ```bash
-$ cd /OPT1/systolic_array/opt1_pe/syn
+$ cd /OPT1/systolic_array_os/opt1_pe/syn
 $ sh run.sh
-$ cd /OPT1/systolic_array/opt1_pe/power
+$ cd /OPT1/systolic_array_os/opt1_pe/power
 $ sh pt.sh
 ```
 
@@ -54,7 +54,7 @@ $ sh pt.sh
 |MAC Area($um^{2}$)|1481|1666|**Timing VIOLATED**|**Timing VIOLATED**|**Timing VIOLATED**|**Timing VIOLATED**|**Timing VIOLATED**|**Timing VIOLATED**|
 |OPT1-PE Area($um^{2}$)|/|/|1446|1482|1609|1668|1780|**Timing VIOLATED**|
 
-***<u>Note: MAC test code in path "/OPT1/systolic_array/mac_pe". Area and timing report in path "/OPT1/systolic_array/opt1_pe/syn/outputs" and "/OPT1/systolic_array_os/mac_pe/syn/outputs"</u>***
+***<u>Note: MAC test code in path "/OPT1/systolic_array_os/mac_pe". Area and timing report in path "/OPT1/systolic_array/opt1_pe/syn/outputs" and "/OPT1/systolic_array_os/mac_pe/syn/outputs"</u>***
 
 Next, we evaluate the performance of the array by comparing OPT1-PE with traditional MAC (Multiply-Accumulate) units under OS-style (Output Stationary), WS-style (Weight Stationary), and 3D-Cube architecture-based TensorCore configurations.
 
