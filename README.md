@@ -233,7 +233,7 @@ $ sh run.sh
 
 ![image](assets/image-20250425153743-bfn0w5o.png "​​Fig. 2. OPT2 TPE data mapping and calculation method​ (WS).")
 
-**Key Notes:  EN-T Multiplication Ppinciple reference paper:**  [EN-T: Optimizing Tensor Computing Engines Performance via Encoder-Based Methodology | IEEE Conference Publication | IEEE Xplore](https://ieeexplore.ieee.org/abstract/document/10818037)
+**Key Notes:  EN-T Multiplication Principle reference paper:**  [EN-T: Optimizing Tensor Computing Engines Performance via Encoder-Based Methodology | IEEE Conference Publication | IEEE Xplore](https://ieeexplore.ieee.org/abstract/document/10818037)
 
 Execute the following commands to perform GEMM calculation, functional simulation, and view the waveforms (***<u>Note: Replace the working paths in both the scripts and filelist with your personal directory</u>***)：
 
