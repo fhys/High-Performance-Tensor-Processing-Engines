@@ -17,21 +17,16 @@ wire d ;
 reg [7:0] cal_en_multiplicand;
 reg [1:0] position_1 ;
 reg [1:0] position_2 ;
-reg [1:0] position_3 ;
+reg       position_3 ;
 
 assign a  =  en_multiplicand[0] | en_multiplicand[1];
 assign b  =  en_multiplicand[2] | en_multiplicand[3];
 assign c  =  en_multiplicand[4] | en_multiplicand[5];
 assign d  =  en_multiplicand[6] | en_multiplicand[7];
 
-assign cal_cycle = {(a) & (b) & (c) & (d),
-                               ((~a) & (c) & (d)) | ((~a) & (b) & (d)) | ((~a) & (b) & (c)) | (
-                                           (a) & (~b) & (d)) | ((a) & (c) & (~d)) | (
-                                           (a) & (b) & (~c)),
-                               ((~a) & (~b) & (~c) & (d)) | ((~a) & (~b) & (c) & (~d)) | (
-                                           (~a) & (b) & (~c) & (~d)) | ((~a) & (b) & (c) & (d)) | (
-                                           (a) & (~b) & (~c) & (~d)) | ((a) & (~b) & (c) & (d)) | (
-                                           (a) & (b) & (~c) & (d)) | ((a) & (b) & (c) & (~d))};
+
+assign a_b_c_d = (a) & (b) & (c) & (d);
+assign cal_cycle = {a_b_c_d,(~a & ( (b & c) | (b & d) | (c & d) )) | (a & ( (b & ~c) | (~b & d) | (c & ~d) )),(a ^ b) ^ (c ^ d)};
 
 /**********************************************/
 /********  00  |  01  |  10  |  11  | *********/
@@ -65,21 +60,19 @@ always @(posedge clk or negedge rst_n) begin
             position_0   <= 2'b0 ;    
             position_1   <= 2'b0 ;        
             position_2   <= 2'b0 ;          
-            position_3   <= 2'b0 ;
+            position_3   <= 1'b0 ;
     end
     else begin
           if(encode_valid) begin
               position_0   <= {(~a)&(~b), (~a & (b | ~c))};
-              position_1   <= {( (a ^ b) & (c | d)) | ( (~a)&(c)&(d) ),
-                                    ( (~a)&(~b)&(c)&(d) ) | ( (b)&(~c)&(d) ) | ( (a)&(~c)&(d) ) | ( (a)&(b) )};
-              position_2   <= {( (b)&(c)&(d) ) | ( (a)&(c)&(d) ) | ( (a)&(b)&(d) ) | ( (a)&(b)&(c) ),
-                                    ( (~a)&(b)&(c)&(d) ) | ( (a)&(~b)&(c)&(d) ) | ( (a)&(b)&(~c)&(d) )};
-              position_3   <= {(a)&(b)&(c)&(d),(a)&(b)&(c)&(d)};
+              position_1   <= {( (a ^ b) & (c | d)) | ( (~a)&(c)&(d) ), (a & b) | ( d & ( ( (a ^ b) & ~c ) | ( ~a & ~b & c ) ))};
+              position_2   <= {(c & d & (a | b)) | (a & b & (c | d)), d & ( (a&b | a&c | b&c) & ~(a&b&c) )};
+              position_3   <= a_b_c_d;
           end
           else begin
               position_0 <= position_1;
               position_1 <= position_2;
-              position_2 <= position_3;
+              position_2 <= {position_3,position_3};
               position_3 <= 0;
           end
         end
