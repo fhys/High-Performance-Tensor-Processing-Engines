@@ -347,7 +347,7 @@ Under different variances of the normal distribution, the acceleration effect br
 |K \= 128|Mean \= 0, Std\_dev \= 10|Mean \= 0, Std\_dev \= 20|Mean \= 0, Std\_dev \= 30|Mean \= 0, Std\_dev \= 40|Mean \= 0, Std\_dev \= 50|
 | :------------------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
 |Average partial product|1.75|2.10|2.32|2.48|2.60|
-|Rate of reduction in computational load(%)|57.25|48.75|43.25|38.75|35.75|
+|Rate of reduction in computational load(%)|56.25|47.50|42.00|38.00|35.00|
 
 ![image](assets/image-20250518171735-9upne4o.png "Fig. 5. In the waveform, ​​cal_cycle​​ indicates the number of partial products for the corresponding operands or the number of multiply-accumulate clock cycles. The testbench provides an example of control and scheduling for these operations.")
 
