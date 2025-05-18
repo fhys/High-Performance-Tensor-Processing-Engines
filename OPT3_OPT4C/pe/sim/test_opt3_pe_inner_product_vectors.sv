@@ -265,7 +265,7 @@ endtask
 
 // benchmark for average partial product
 always @(posedge clk) begin
-  if (encode_valid) begin
+  if (encode_valid & !$isunknown(cal_cycle)) begin
     sum <= sum + cal_cycle; 
     cnt <= cnt + 1;         
   end
