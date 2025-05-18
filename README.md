@@ -1,21 +1,21 @@
 # Technical Documentation and Interface Description
 
-[Exploring the Performance Improvement of Tensor Processing Engines through Transformation in the Bit-weight Dimension of MACs | IEEE Conference Publication | IEEE Xplore](https://ieeexplore.ieee.org/abstract/document/10946737) (HPCA 2025)
+of  [Exploring the Performance Improvement of Tensor Processing Engines through Transformation in the Bit-weight Dimension of MACs | IEEE Conference Publication | IEEE Xplore](https://ieeexplore.ieee.org/abstract/document/10946737) (HPCA 2025)
 
 ![image](assets/image-20250423170332-07aeb6b.png)
 
-* Testing Process Library: For reproducibility, the Synopsys official educational library SAED32nm was used in this repositories(path: "library/saed32rvt\_tt0p85v25c.db"; the full set of process corners can be downloaded from the official website).
+- Testing Process Library: For reproducibility, the Synopsys official educational library SAED32nm was used in this repositories(path: "library/saed32rvt\_tt0p85v25c.db"; the full set of process corners can be downloaded from the official website).
 
   **Key Notes:**
 
-  * **SAED32nm**: A Synopsys-provided educational PDK for 32nm process training, compatible with tools like Design Compiler and IC Compiler.
-  * **Process Corner**: The `tt0p85v25c`​ file represents the **Typical-Typical (TT)**  corner at 0.85V and 25°C. Other corners (e.g., FF/SS for fast/slow transistors) require separate downloads.
-  * **Application**: This library is commonly used in academic labs for ASIC flow demonstrations (e.g., synthesis, P&R) but lacks full foundry-certified DRC/LVS rules. For production designs, contact foundries (e.g., SMIC/TSMC) for licensed PDKs.
-* EDA Tool：
+  - **SAED32nm**: A Synopsys-provided educational PDK for 32nm process training, compatible with tools like Design Compiler and IC Compiler.
+  - **Process Corner**: The `tt0p85v25c`​ file represents the **Typical-Typical (TT)**  corner at 0.85V and 25°C. Other corners (e.g., FF/SS for fast/slow transistors) require separate downloads.
+  - **Application**: This library is commonly used in academic labs for ASIC flow demonstrations (e.g., synthesis, P&R) but lacks full foundry-certified DRC/LVS rules. For production designs, contact foundries (e.g., SMIC/TSMC) for licensed PDKs.
+- EDA Tool：
 
-  * Area synthesis tool：Synopsys Design Compiler Version L-2016.03-SP1 for linux64
-  * RTL functional simulation tool：Chronologic VCS Version L-2016.06_Full64
-  * Netlist power simulation tool：PrimeTime Version M-2016.12-SP1 for linux64
+  - Area synthesis tool： Synopsys Design Compiler Version L-2016.03-SP1 for linux64
+  - RTL functional simulation tool：Chronologic VCS Version L-2016.06_Full64
+  - Netlist power simulation tool：PrimeTime Version M-2016.12-SP1 for linux64
 
 ‍
 
@@ -23,10 +23,10 @@
 
 ## **Compressed Accumulative** Process Element (PE)
 
-* RTL path: "OPT1/systolic_array_os/opt1_pe/"
-* Synthesis script path: "/OPT1/systolic_array_os/opt1_pe/syn/run.sh"
-* PrimeTime power simulation script path: "/OPT1/systolic_array_os/opt1_pe/power/pt.sh"
-* RTL functional simulation："/OPT1/systolic_array_os/opt1_pe/sim"
+- RTL path: "OPT1/systolic_array_os/opt1_pe/"
+- Synthesis script path: "/OPT1/systolic_array_os/opt1_pe/syn/run.sh"
+- PrimeTime power simulation script path: "/OPT1/systolic_array_os/opt1_pe/power/pt.sh"
+- RTL functional simulation："/OPT1/systolic_array_os/opt1_pe/sim"
 
 Execute the following commands to perform PE calculation, functional simulation, and view the waveforms (***<u>Note: Replace the working paths in both the scripts and filelist with your personal directory</u>***)：
 
@@ -293,12 +293,131 @@ The following are typical configurations for some array sizes:
 
 ‍
 
-# **Sparsity Encoding PE-Array for GEMM**  (OPT3)
-
-# Shared DFFs S**parsity Encoding PE-Array for GEMM**  (OPT4)
-
-***<u>Note: Subsequent content (OPT3 and OPT4)  documents updates are ongoing and will be completed by May 20th.</u>***
+# **Sparsity Encoding PE-Array (OS-Style) for GEMM**  (OPT3 and OPT4C)
 
 ‍
 
-‍
+![image](assets/image-20250518165300-lx9r183.png "Fig. 3. OPT3 and OPT4 test framework.")![image](assets/image-20250518164949-c177kdo.png "Fig. 4. After processing through the EN-T encoder and sparse encoder, the majority of zero partial products can be skipped during the multiplication process.")​
+
+​​
+
+First, you need to execute the following commands to run OPT3PE for performing vector inner products, which helps in understanding the fundamental principles of OPT3 and OPT4 multiplication. In the testbench, you can adjust parameter `K`​ to modify the reduction dimension size of the vectors. Run the following command to perform a test of 1000 vector inner product calculations: (***<u>Note: Replace the working paths in both the scripts and filelist with your personal directory</u>***)：
+
+```bash
+$ cd /OPT3_OPT4C/pe/sim
+$ make vcs
+$ make vd
+```
+
+for example, set parameters `K=32`​ then begin 1000 times random (under `normal distribution`​input) vector inner products testing. The following command line output indicates a successful run:
+
+```bash
+$ make vcs
+SUCCESS: times_a=1, elements match in tpe_vector_c and vector_c for size A[1,32] * B[32,1] = C[1,1]!
+SUCCESS: times_a=2, elements match in tpe_vector_c and vector_c for size A[1,32] * B[32,1] = C[1,1]!
+...
+...
+SUCCESS: times_a=998, elements match in tpe_vector_c and vector_c for size A[1,32] * B[32,1] = C[1,1]!
+SUCCESS: times_a=999, elements match in tpe_vector_c and vector_c for size A[1,32] * B[32,1] = C[1,1]!
+SUCCESS: times_a=1000, elements match in tpe_vector_c and vector_c for size A[1,32] * B[32,1] = C[1,1]!
+Average cal_cycle for per-operand = 2.05
+```
+
+You can modify the following functions in the testbench to adjust the distribution of the generated random numbers, such as parameters like the mean and variance.
+
+```bash
+ task generate_int8_vector_a_b; 
+    integer i, j;
+    begin
+        for (i = 0; i < K; i = i + 1) begin
+          vector_a[i] = normal_random(0, 20, -128, 127); //Normal distribution(mean,std_dev,min,max)
+          vector_b[i] = normal_random(0, 20, -128, 127); //Normal distribution(mean,std_dev,min,max)
+        end
+      end
+  endtask
+```
+
+Under different variances of the normal distribution, the acceleration effect brought by sparse encoding will vary. This is primarily influenced by the average number of partial products (under INT8)—the smaller this number, the faster the computation speed. In the testbench, we monitor and display the current average number of partial products in real-time, printed in **red font** in the command line.
+
+|K = 32|Mean = 0, Std_dev = 10|Mean = 0, Std_dev = 20|Mean = 0, Std_dev = 30|Mean = 0, Std_dev = 40|Mean = 0, Std_dev = 50|
+| :------------------------------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: |
+|Average partial product|1.71|2.05|2.27|2.45|2.57|
+|Rate of reduction in computational load(%)|57.25|48.75|43.25|38.75|35.75|
+
+|K \= 128|Mean \= 0, Std\_dev \= 10|Mean \= 0, Std\_dev \= 20|Mean \= 0, Std\_dev \= 30|Mean \= 0, Std\_dev \= 40|Mean \= 0, Std\_dev \= 50|
+| :------------------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
+|Average partial product|1.75|2.10|2.32|2.48|2.60|
+|Rate of reduction in computational load(%)|57.25|48.75|43.25|38.75|35.75|
+
+![image](assets/image-20250518171735-9upne4o.png "Fig. 5. In the waveform, ​​cal_cycle​​ indicates the number of partial products for the corresponding operands or the number of multiply-accumulate clock cycles. The testbench provides an example of control and scheduling for these operations.")
+
+Next, we assemble a fundamental **column array** using these PEs to **perform matrix multiplication operations**. By utilizing **column PEs as primitives**, this architecture enables **scalable expansion of computing power** for larger-scale computational tasks. Run the following command to perform a test of 1000 GEMM calculations: (***<u>Note: Replace the working paths in both the scripts and filelist with your personal directory</u>***)：
+
+```bash
+$ cd /OPT3_OPT4C/array/sim
+$ make vcs
+$ make vd
+```
+
+***<u>Note: To facilitate result comparison, we have exposed all the result output registers as output port. Please note that in practical OS-style computing array systems, to ensure high area efficiency and meet output bandwidth requirements, the reduced results can either be output through systolic movement across all PEs or streamed out via selector-based pipelining after reduction. This flexibility helps minimize output bandwidth and fan-out to improve timing. Adjust the output format in your code according to your system‘s actual requirements!</u>***
+
+In the testbench, parameters **M** and **K** are **software-configurable dimensions** that can be adjusted dynamically via software (e.g., through instructions or controller configurations). In contrast, parameter **N** is a **hardware dimension**—modifying **N** requires corresponding changes to the hardware architecture (e.g., altering the number of column PEs). for example, set parameters `M=32,K=32,N=32`​ then begin 1000 times random (under `normal distribution`​input) GEMM testing.
+
+```bash
+$ make vcs
+SUCCESS: times_a=1, all elements match in matrix_c and tpe_matrix for size A[32,32] * B[32,32] = C[32,32]!
+SUCCESS: times_a=2, all elements match in matrix_c and tpe_matrix for size A[32,32] * B[32,32] = C[32,32]!
+...
+...
+SUCCESS: times_a=998, all elements match in matrix_c and tpe_matrix for size A[32,32] * B[32,32] = C[32,32]!
+SUCCESS: times_a=999, all elements match in matrix_c and tpe_matrix for size A[32,32] * B[32,32] = C[32,32]!
+SUCCESS: times_a=1000, all elements match in matrix_c and tpe_matrix for size A[32,32] * B[32,32] = C[32,32]!
+Average cal_cycle for per-operand = 2.28
+```
+
+Execute the following commands to perform OPT4C single column PE array synthesis (***<u>Note: Replace the working paths in both the scripts and filelist with your personal directory</u>***):
+
+```bash
+$ cd /OPT3_OPT4C/array/syn
+$ sh run.sh
+```
+
+The following are typical configurations for some frequency in same column size:
+
+| N|32|32|32|32|32|32|
+| :---------------------------------------------------: | :-----------------------------: | :-----------------------------: | :-----------------------------: | :-----------------------------: | :-----: | :----: |
+|Freq(MHz)|714|1000|1250|1666|1694|1720|
+|Delay(ns)|1.30|0.95|0.74|0.55|0.54|**Timing VIOLATED**|
+|Area(Total cell area)($um^{2}$)|23670|26548|29914|30690|30877|/|
+|Area(Include Net Interconnect area and cell area)($um^{2}$)|31861|35820|39558|40638|40865|/|
+
+|N|16|16|16|16|
+| :---------------------------------------------------: | :-----: | :-----: | :-----: | :----: |
+|Freq(MHz)|714|1000|1724|1754|
+|Delay(ns)|1.30|0.95|0.53|**Timing VIOLATED**|
+|Area(Total cell area)($um^{2}$)|11788|12955|15854|/|
+|Area(Include Net Interconnect area and cell area)($um^{2}$)|15118|16545|19913|/|
+
+***<u>Note:  Area and timing report in path "/OPT3_OPT4C/array/syn/outputs_array/saed32rvt_tt0p85v25c"</u>***
+
+If you find this code helpful, you may cite the following references in your paper. Thank you very much.
+
+```undefined
+@inproceedings{wu2024t,
+  title={EN-T: Optimizing Tensor Computing Engines Performance via Encoder-Based Methodology},
+  author={Wu, Qizhe and Gui, Yuchen and Zeng, Zhichen and Wang, Xiaotian and Liang, Huawen and Jin, Xi},
+  booktitle={2024 IEEE 42nd International Conference on Computer Design (ICCD)},
+  pages={608--615},
+  year={2024},
+  organization={IEEE}
+}
+
+@inproceedings{wu2025exploring,
+  title={Exploring the Performance Improvement of Tensor Processing Engines through Transformation in the Bit-weight Dimension of MACs},
+  author={Wu, Qizhe and Liang, Huawen and Gui, Yuchen and Zeng, Zhichen and He, Zerong and Tao, Linfeng and Wang, Xiaotian and Zhao, Letian and Zeng, Zhaoxi and Yuan, Wei and others},
+  booktitle={2025 IEEE International Symposium on High Performance Computer Architecture (HPCA)},
+  pages={685--700},
+  year={2025},
+  organization={IEEE}
+}
+```
