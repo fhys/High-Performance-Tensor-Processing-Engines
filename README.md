@@ -301,7 +301,7 @@ The following are typical configurations for some array sizes:
 
 ​​
 
-First, you need to execute the following commands to run OPT3PE for performing vector inner products, which helps in understanding the fundamental principles of OPT3 and OPT4 multiplication. In the testbench, you can adjust parameter `K`​ to modify the reduction dimension size of the vectors. Run the following command to perform a test of 1000 vector inner product calculations: (***<u>Note: Replace the working paths in both the scripts and filelist with your personal directory</u>***)：
+First, you need to execute the following commands to run OPT3 PE for performing vector inner products, which helps in understanding the fundamental principles of OPT3 and OPT4 multiplication. In the testbench, you can adjust parameter `K`​ to modify the reduction dimension size of the vectors. Run the following command to perform a test of 1000 vector inner product calculations: (***<u>Note: Replace the working paths in both the scripts and filelist with your personal directory</u>***)：
 
 ```bash
 $ cd /OPT3_OPT4C/pe/sim
