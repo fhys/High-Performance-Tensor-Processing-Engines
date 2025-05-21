@@ -66,7 +66,7 @@ $ make vcs
 $ make vd
 ```
 
-***<u>Note: To facilitate result comparison, we have exposed all the result output registers as output port. Please note that in practical OS-style computing array systems, to ensure high area efficiency and meet output bandwidth requirements, the reduced results can either be output through systolic movement across all PEs and add only single adder in one row to fuse sum and carry or streamed out via selector-based pipelining after reduction. This flexibility helps minimize output bandwidth and fan-out to improve timing. Adjust the output format in your code according to your system‘s actual requirements!</u>***
+***<u>Note: To facilitate result comparison, we have exposed all the result output registers as output port. Please note that in practical OS-style computing array systems, to ensure high area efficiency and meet output bandwidth requirements, the reduced results can either be output through systolic movement across all PEs (add only single adder in one row to fuse sum and carry in OPT1 OS based PE Array) or streamed out via selector-based pipelining after reduction. This flexibility helps minimize output bandwidth and fan-out to improve timing. Adjust the output format in your code according to your system‘s actual requirements!</u>***
 
 You can modify the parameters `M`​ ,`N`​ and `K`​ in the testbench (/OPT1/systolic_array_os/array_mac_based/sim/test_mac_os_array.sv) to implement sub-matrix multiplication.
 
