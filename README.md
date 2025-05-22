@@ -400,6 +400,8 @@ The following are typical configurations for some frequency in same column size:
 
 ***<u>Note:  Area and timing report in path "/OPT3_OPT4C/array/syn/outputs_array/saed32rvt_tt0p85v25c"</u>***
 
+OPT4E is an extended K-dimensional version of OPT4C, which can reduce the area proportion of registers in the PE array and further improve area efficiency. Readers can reproduce it based on the previous code by themselves. If there are any technical questions, they can contact the author at any time for discussion.
+
 If you find this code helpful, you may cite the following references in your paper. Thank you very much.
 
 ```undefined
