@@ -17,7 +17,7 @@ of  [Exploring the Performance Improvement of Tensor Processing Engines through 
   - RTL functional simulation tool：Chronologic VCS Version L-2016.06_Full64
   - Netlist power simulation tool：PrimeTime Version M-2016.12-SP1 for linux64
 
-‍
+‍---
 
 # **Compressed Accumulative PE Array OS Style** (OPT1-OS)
 
